@@ -305,6 +305,7 @@ body {
     /* Full viewport height */
     padding: 0;
     /* Remove default padding if any */
+
 }
 
 
@@ -318,7 +319,7 @@ body {
     margin: 0;
     padding: 0 4rem 0 2rem;
     /* Space from left margin */
-    gap: 2rem;
+    gap: 1rem;
     position: relative;
     z-index: 2;
 }
@@ -440,6 +441,37 @@ body {
 
 .hero__connect-card a:hover {
     color: var(--accent);
+}
+
+
+
+
+
+
+.mobile-connect__link i,
+.hero__connect-card li i{
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.mobile-connect__link .fa-phone-volume,
+.hero__connect-card .fa-phone-volume {
+  color: #27ae60;
+}
+
+.mobile-connect__link .fa-whatsapp,
+.hero__connect-card .fa-whatsapp {
+  color: #25D366;
+}
+
+.mobile-connect__link .fa-at,
+hero__connect-card .fa-at {
+  color: #0072c6;
+}
+
+.mobile-connect__link fa-map-marker-alt,
+.hero__connect-card .fa-map-marker-alt {
+  color: #e74c3c;
 }
 
 /* Mobile Connect */
@@ -687,7 +719,7 @@ body {
 
 @media (min-width: 769px) {
     .mobile-only {
-        display: none;
+        display: none !important;
     }
 
     .mobile-connect__links {
@@ -785,6 +817,7 @@ body {
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-left: 15rem;
 }
 
 .about-content h2 {
@@ -1048,7 +1081,7 @@ body {
 /* ====== Grid Container ====== */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   gap: 2rem;
   padding: 0 1rem;
   max-width: 100%;
@@ -1082,7 +1115,7 @@ body {
 
   .card-body button {
     padding: 0.5em 1em;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
 
@@ -1121,7 +1154,7 @@ body {
 .service-card picture,
 .service-card img {
   width: 100%;
-  height: 240px;
+  height: 340px;
   object-fit: cover;
   display: block;
 }
@@ -1547,3 +1580,94 @@ button:disabled {
     display: flex;
     align-items: center;
 } */
+
+/* Brands marquee */
+.brands-marquee {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.6);     /*rgba(255, 255, 255, 0.6) */
+  backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin: 2rem;
+  margin-bottom: 20px;
+}
+
+.brands-track {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0.75rem 1rem;
+  width: max-content;
+  animation: brands-scroll 30s linear infinite;
+}
+
+.brands-marquee img {
+  height: 38px;
+  width: auto;
+  opacity: 0.85;
+  filter: grayscale(0%);
+  transition: opacity 0.2s ease, filter 0.2s ease, transform 0.2s ease;
+}
+
+.brands-marquee img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+@keyframes brands-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .brands-marquee img { height: 22px; }
+  .brands-track { gap: 1.5rem; padding: 0.5rem 0.75rem; animation-duration: 24s; }
+}
+
+/* Brands in hero positioning */
+.brands-in-hero {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+}
+
+#hero { position: relative; }
+
+/* Ensure down arrow sits above or adjust spacing */
+.hero__down-arrow { bottom: 3.5rem; }
+
+/* Fixed navbar on large screens */
+@media (min-width: 1024px) {
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1500;
+  }
+
+  body {
+    padding-top: 72px; /* offset for fixed navbar height */
+  }
+}
+
+
+
+
+
+/* Responsive: stack image above intro text on small screens */
+@media (max-width: 768px) {
+    .hero__image {
+        margin: 1.5rem 0;
+    }
+    .hero__image img {
+        max-width: 220px;
+    }
+}
