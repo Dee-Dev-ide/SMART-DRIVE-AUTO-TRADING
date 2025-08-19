@@ -1735,6 +1735,8 @@ button:disabled {
   }
 }
 
+
+
 @media (max-width: 768px) {
   .brands-marquee img {
     height: 22px;
@@ -1794,5 +1796,37 @@ button:disabled {
 
   .hero__image img {
     max-width: 220px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw;
+    max-width: 100vw;
+  }
+  .brands-marquee {
+    overflow-x: hidden;
+    left: 0;
+    right: 0;
+    width: 100vw;
+  }
+  .brands-track {
+    min-width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 }
