@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Federant&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Federant&family=Fjalla+One&display=swap');
 
 
 :root {
@@ -226,20 +226,6 @@ body {
   backdrop-filter: blur(2px);
 }
 
-/* Hero Section - UPDATED */
-
-/* Hero Background Logos */
-.hero-bg-logo {
-  position: absolute;
-  z-index: 0;
-  opacity: 0.8;
-  /* Adjust this value for desired opacity */
-  pointer-events: none;
-  user-select: none;
-  width: 180px;
-  height: auto;
-  transition: opacity 0.3s;
-}
 
 /* Hero Background Image */
 .hero__background-image {
@@ -261,43 +247,6 @@ body {
   filter: blur(1px);
 }
 
-.hero-bg-logo--top-left {
-  top: 24px;
-  left: 24px;
-}
-
-.hero-bg-logo--bottom-right {
-  bottom: 24px;
-  right: 24px;
-}
-
-/* Responsive logo sizing for small screens */
-@media (max-width: 768px) {
-  .hero-bg-logo {
-    width: 90px;
-    opacity: 0.12;
-    /* Slightly more visible on mobile if desired */
-  }
-
-  .hero-bg-logo--bottom-right {
-    bottom: 12px;
-    right: 12px;
-  }
-
-  .hero-bg-logo--top-left {
-    top: 12px;
-    left: 12px;
-  }
-}
-
-/* Only show both logos on large screens, one logo on small screens */
-@media (max-width: 768px) {
-  .hero-bg-logo--bottom-right {
-    display: none;
-  }
-}
-
-/*hero bg logos above*/
 
 
 
@@ -332,6 +281,7 @@ body {
 
 .hero__intro {
   flex: 1;
+  color: black;
   text-align: left;
   /* Optionally add more left padding if needed */
   background: rgba(255, 255, 255, 0.1);
@@ -344,11 +294,10 @@ body {
 .hero__intro h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: green;
+  color: red;
   font-weight: bold;
 
-
-  font-family: "Federant", serif;
+font-family: "Fjalla One", sans-serif;
   font-weight: 400;
   font-style: normal
 }
@@ -370,6 +319,7 @@ body {
 .hero__intro .motto {
   font-style: italic;
   margin-bottom: 1.5rem;
+  color: var(--accent);
 }
 
 /* Buttons */
@@ -450,7 +400,20 @@ body {
 }
 
 
-
+@media (max-width: 768px) {
+  .nav {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    min-height: 48px;
+  }
+  .nav__inner {
+    padding: 4px 1rem;
+    min-height: 44px;
+  }
+  .nav__logo img {
+    height: 36px;
+  }
+}
 
 
 
@@ -677,6 +640,93 @@ hero__connect-card .fa-at {
   .nav__toggle {
     display: none !important;
   }
+
+
+  @media (min-width: 841px) {
+  .nav {
+    background: linear-gradient(135deg, rgba(146, 227, 117, 0.95) 0%, rgba(218, 218, 231, 0.95) 50%, rgba(13, 3, 3, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(37, 210, 63, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  .nav__logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  .nav__logo:hover {
+    transform: scale(1.05);
+  }
+  .nav__logo-img {
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  }
+  .nav__tagline {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  }
+  .nav__link {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 0;
+    backdrop-filter: blur(5px);
+  }
+  .nav__link:hover {
+    color: #fff;
+    background: linear-gradient(135deg, #007acc, #28a745);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 122, 204, 0.3);
+  }
+  .nav__link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 122, 204, 0.1), rgba(40, 167, 69, 0.1));
+    border-radius: 25px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  .nav__link:hover::before {
+    opacity: 1;
+  }
+  .nav__link.active {
+    background: linear-gradient(135deg, #007acc, #28a745);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 122, 204, 0.4);
+    transform: translateY(-1px);
+  }
+  .nav__link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+  }
+}
+
+
 }
 
 @media (max-width: 768px) {
@@ -698,11 +748,13 @@ hero__connect-card .fa-at {
 
   .hero__intro {
     text-align: left;
+    font-size: 0.8rem;
     /* Explicit left alignment */
   }
 
   .hero__intro h1 {
-    font-size: 2rem;
+    font-size: 3rem;
+
   }
 
   .hero__background-image {
@@ -933,8 +985,8 @@ body {
 }
 
 .cursive-text {
-  font-family: 'Brush Script MT', cursive;
-  font-size: 1.5rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1rem;
   color: #007acc;
   margin-top: 1rem;
 }
@@ -1080,10 +1132,19 @@ section {
 }
 
 @media (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
+  .container,
+  .value-container,
+  .service-grid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
+  .grid {
+    padding-left: 0;
+    padding-right: 0;
+  }
   section {
     padding: 2rem 0;
   }
@@ -1577,6 +1638,12 @@ button:disabled {
 
   }
 }
+
+
+
+
+
+
 
 
 
